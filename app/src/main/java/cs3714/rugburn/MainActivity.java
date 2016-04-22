@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         start = (Button) findViewById(R.id.start);
         start.setOnClickListener(this);
-        past = (Button) findViewById(R.id.past);
+        past = (Button) findViewById(R.id.previous);
         past.setOnClickListener(this);
         wod = (Button) findViewById(R.id.wod);
         wod.setOnClickListener(this);
