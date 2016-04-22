@@ -1,13 +1,65 @@
 package cs3714.rugburn;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import cs3714.rugburn.CustomObjects.User;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    User user;
+    Button start, past, wod;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Bundle bundle = this.getIntent().getExtras();
+        if (bundle != null) {
+            user = bundle.getParcelable("USER");
+        } else {
+            user = new User();
+        }
+
+        start = (Button) findViewById(R.id.start);
+        start.setOnClickListener(this);
+        past = (Button) findViewById(R.id.past);
+        past.setOnClickListener(this);
+        wod = (Button) findViewById(R.id.wod);
+        wod.setOnClickListener(this);
+
+        if (user.getCurrentWorkout() != null &&
+                !user.getCurrentWorkout().getFinished()) {
+            start.setText("Continue Workout");
+        }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == start.getId()) {
+            i = new Intent(this, CurrentWorkoutActivity.class);
+            Bundle b = new Bundle();
+            b.putParcelable("USER", user);
+            i.putExtras(b);
+            startActivity(i);
+        } else if (v.getId() == past.getId()) {
+            i = new Intent(this, PastWorkoutActivity.class);
+            Bundle b = new Bundle();
+            b.putParcelable("USER", user);
+            i.putExtras(b);
+            startActivity(i);
+        } else if (v.getId() == wod.getId()) {
+            i = new Intent(this, WorkoutOfDayActivity.class);
+            Bundle b = new Bundle();
+            b.putParcelable("USER", user);
+            i.putExtras(b);
+            startActivity(i);
+        }
     }
 }
