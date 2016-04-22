@@ -21,8 +21,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
+            System.out.println("BUNDLE BACK");
             user = bundle.getParcelable("USER");
         } else {
+            System.out.println("NO BUNDLE");
             user = new User();
         }
 
@@ -30,13 +32,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         start.setOnClickListener(this);
         past = (Button) findViewById(R.id.previous);
         past.setOnClickListener(this);
-        wod = (Button) findViewById(R.id.wod);
+        wod = (Button) findViewById(R.id.wodButton);
         wod.setOnClickListener(this);
 
         if (user.getCurrentWorkout() != null &&
                 !user.getCurrentWorkout().getFinished()) {
             start.setText("Continue Workout");
+            System.out.println("SHOULD BE CONTINUE WORKOUT");
+        } else {
+            System.out.println(user.getCurrentWorkout());
         }
+
     }
 
 

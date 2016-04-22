@@ -3,6 +3,7 @@ package cs3714.rugburn;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -68,5 +69,19 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
             i.putExtras(b);
             startActivity(i);
         }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent intent = new Intent(this, MainActivity.class);
+                Bundle bundleForBack = new Bundle();
+                bundleForBack.putParcelable("USER", user);
+                intent.putExtras(bundleForBack);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
