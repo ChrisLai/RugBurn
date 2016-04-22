@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import cs3714.rugburn.CustomObjects.User;
 
@@ -16,6 +18,8 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
     User user;
 
     Button finish;
+    TextView quote;
+    ListView list;
     Intent i;
 
     @Override
@@ -23,10 +27,15 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_workout);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
             user = bundle.getParcelable("USER");
         }
+        //TODO: get motivational quotes
+        quote = (TextView)findViewById(R.id.motivational);
+        list = (ListView)findViewById(R.id.listPrev);
     }
 
     @Override

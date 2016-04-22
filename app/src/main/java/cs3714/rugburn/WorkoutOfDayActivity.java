@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Date;
 
@@ -20,12 +22,17 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
     User user;
 
     Button start;
+    TextView exercise,sets,reps,weight,quote;
+    ImageView picture;
+
     Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wod);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
@@ -34,6 +41,16 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
 
         start = (Button) findViewById(R.id.start);
         start.setOnClickListener(this);
+
+        //TODO: make workout of the day and set these TextViews and the ImageView
+        //TODO: also need motivational quotes
+        exercise = (TextView)findViewById(R.id.wod);
+        sets = (TextView)findViewById(R.id.setNum);
+        reps = (TextView)findViewById(R.id.repNum);
+        weight = (TextView)findViewById(R.id.weightNum);
+        quote = (TextView)findViewById(R.id.motivate);
+
+        picture = (ImageView)findViewById(R.id.wodPic);
     }
 
     @Override

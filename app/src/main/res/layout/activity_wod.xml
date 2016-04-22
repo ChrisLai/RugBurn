@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="cs3714.rugburn.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/wod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Squat"
+            android:textSize="40dp"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:id="@+id/wodPic"
+            android:layout_width="350dp"
+            android:layout_height="165dp"
+            android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/sets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:text="Sets:"
+            android:textSize="30dp"
+            android:layout_gravity="left"/>
+        <TextView
+            android:id="@+id/setNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="30dp"
+            android:padding="7dp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="left"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/reps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="Reps:"
+                android:textSize="30dp"
+                android:layout_gravity="left"/>
+            <TextView
+                android:id="@+id/repNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="30dp"
+                android:padding="7dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/weight"
+                android:padding="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight:"
+                android:textSize="30dp"
+                android:layout_gravity="left"/>
+            <TextView
+                android:id="@+id/weightNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="155"
+                android:textSize="30dp"
+                android:padding="7dp"
+                android:paddingLeft="10dp"
+                android:layout_gravity="left"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/motivate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Feel that Burn!"
+            android:textSize="40dp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Start Exercise"
+            android:textSize="25dp"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+</RelativeLayout>

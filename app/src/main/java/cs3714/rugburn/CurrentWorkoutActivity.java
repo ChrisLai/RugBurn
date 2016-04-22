@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.Date;
 
@@ -19,7 +21,9 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
     User user;
     Workout workout;
 
-    Button finish;
+    Button finish,add;
+    ListView list;
+    TextView date;
     Intent i;
 
     @Override
@@ -27,6 +31,7 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_workout);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
             user = bundle.getParcelable("USER");
@@ -44,6 +49,14 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
 
         finish = (Button) findViewById(R.id.finish);
         finish.setOnClickListener(this);
+        add = (Button) findViewById(R.id.add);
+        add.setOnClickListener(this);
+
+        date = (TextView) findViewById(R.id.date);
+        //TODO: get calendar instance and set it in the TextView
+
+        list = (ListView) findViewById(R.id.list);
+        //TODO: create listener and populate with data for ListView
     }
 
     @Override

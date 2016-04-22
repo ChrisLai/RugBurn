@@ -15,10 +15,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CurrentWorkoutActivity"> </activity>
-        <activity android:name=".PastWorkoutActivity"> </activity>
-        <activity android:name=".WorkoutOfDayActivity"> </activity>
-        <activity android:name=".ExerciseActivity"> </activity>
+        <activity android:name=".CurrentWorkoutActivity"
+            android:parentActivityName="cs3714.rugburn.MainActivity"
+            android:label="Current Workout" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cs3714.rugburn.MainActivity" />
+        </activity>
+        <activity android:name=".PastWorkoutActivity"
+            android:parentActivityName="cs3714.rugburn.MainActivity"
+            android:label="Previous Workout" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cs3714.rugburn.MainActivity" /></activity>
+        <activity android:name=".WorkoutOfDayActivity"
+            android:parentActivityName="cs3714.rugburn.MainActivity"
+            android:label="Workout of the Day" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cs3714.rugburn.MainActivity" /></activity>
+        <activity android:name=".ExerciseActivity"
+            android:parentActivityName="cs3714.rugburn.CurrentWorkoutActivity"
+            android:label="Exercise" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cs3714.rugburn.MainActivity" /> </activity>
     </application>
 
 </manifest>
