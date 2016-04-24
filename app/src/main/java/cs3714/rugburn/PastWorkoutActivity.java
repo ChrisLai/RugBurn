@@ -13,6 +13,7 @@ import java.util.Date;
 
 import cs3714.rugburn.CustomObjects.User;
 import cs3714.rugburn.CustomObjects.Workout;
+import cs3714.rugburn.CustomObjects.WorkoutListAdapter;
 
 /**
  * Created by Jared on 4/22/2016.
@@ -21,6 +22,7 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
 
     User user;
     Workout workout;
+    WorkoutListAdapter mAdapter;
 
     Button finish;
     TextView quote, date_text;
@@ -39,18 +41,39 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
             user = bundle.getParcelable("USER");
         }
 
-        workout = user.getLastWorkout();
+        workout = user.getCurrentWorkout();
         if (workout != null) {
-            date_text = (TextView) findViewById(R.id.date);
-            date_text.setText(workout.getDate().toString().substring(0, 10));
-
-            //TODO: get motivational quotes
-            quote = (TextView)findViewById(R.id.motivational);
-            list = (ListView)findViewById(R.id.listPrev);
+            if (!workout.getFinished()) {
+                workout = user.getLastWorkout();
+                if (workout != null) {
+                    DisplayPast();
+                } else {
+                    NoWorkouts();
+                }
+            } else {
+                DisplayPast();
+            }
         } else {
-            //NO PAST WORKOUT
+            NoWorkouts();
         }
 
+    }
+
+    public void DisplayPast() {
+        date_text = (TextView) findViewById(R.id.date);
+        date_text.setText(workout.getDate().toString().substring(0, 10));
+
+        list = (ListView) findViewById(R.id.listPrev);
+        mAdapter = new WorkoutListAdapter(this, workout.getExercises());
+        list.setAdapter(mAdapter);
+
+        //TODO: get motivational quotes
+        quote = (TextView)findViewById(R.id.motivational);
+    }
+
+    public void NoWorkouts() {
+        date_text = (TextView) findViewById(R.id.date);
+        date_text.setText("No past workouts");
     }
 
     @Override

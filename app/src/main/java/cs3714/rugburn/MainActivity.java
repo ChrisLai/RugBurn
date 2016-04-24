@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         wod.setOnClickListener(this);
 
         if (user.getCurrentWorkout() != null &&
+                user.getCurrentWorkout().getExercises().size() > 0 &&
                 !user.getCurrentWorkout().getFinished()) {
             start.setText("Continue Workout");
             System.out.println("SHOULD BE CONTINUE WORKOUT");

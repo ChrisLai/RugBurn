@@ -3,12 +3,15 @@ package cs3714.rugburn;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cs3714.rugburn.CustomObjects.Exercise;
 import cs3714.rugburn.CustomObjects.User;
@@ -43,14 +46,13 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         workout = user.getCurrentWorkout();
 
         //TODO: need to get name of exercise from qr scanner or user manual entry
-        exercise = new Exercise("Squat");
+        exercise = new Exercise("Squats");
 
         submit = (Button) findViewById(R.id.submit);
         submit.setOnClickListener(this);
         cancel = (Button) findViewById(R.id.cancel);
         cancel.setOnClickListener(this);
 
-        //TODO: Get user-entered values from the EditTexts and supply them to our models
         exerciseName = (TextView)findViewById(R.id.name);
         sets = (EditText)findViewById(R.id.setSets);
         reps = (EditText)findViewById(R.id.setReps);
@@ -62,12 +64,33 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v.getId() == submit.getId()) {
-            workout.addExercise(exercise);
-            i = new Intent(this, CurrentWorkoutActivity.class);
-            Bundle b = new Bundle();
-            b.putParcelable("USER", user);
-            i.putExtras(b);
-            startActivity(i);
+            if (sets.getText().equals("") || sets.getText().length() == 0) {
+                Toast.makeText(this, "Please enter the number of sets",
+                        Toast.LENGTH_LONG).show();
+                return;
+            } else {
+                exercise.setSets(Integer.parseInt(sets.getText().toString()));
+            }
+            if (reps.getText().equals("") || reps.getText().length() == 0) {
+                Toast.makeText(this, "Please enter the number of reps",
+                        Toast.LENGTH_LONG).show();
+                return;
+            } else {
+                exercise.setReps(Integer.parseInt(reps.getText().toString()));
+            }
+            if (weight.getText().equals("") || weight.getText().length() == 0) {
+                Toast.makeText(this, "Please enter the weight",
+                        Toast.LENGTH_LONG).show();
+                return;
+            } else {
+                exercise.setWeight(Integer.parseInt(weight.getText().toString()));
+            }
+                workout.addExercise(exercise);
+                i = new Intent(this, CurrentWorkoutActivity.class);
+                Bundle b = new Bundle();
+                b.putParcelable("USER", user);
+                i.putExtras(b);
+                startActivity(i);
         } else if (v.getId() == cancel.getId()) {
             i = new Intent(this, CurrentWorkoutActivity.class);
             Bundle b = new Bundle();

@@ -13,6 +13,7 @@ import java.util.Date;
 
 import cs3714.rugburn.CustomObjects.User;
 import cs3714.rugburn.CustomObjects.Workout;
+import cs3714.rugburn.CustomObjects.WorkoutListAdapter;
 
 /**
  * Created by Jared on 4/22/2016.
@@ -21,6 +22,7 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
 
     User user;
     Workout workout;
+    WorkoutListAdapter mAdapter;
 
     Button finish,add;
     ListView list;
@@ -67,7 +69,8 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
 
 
         list = (ListView) findViewById(R.id.list);
-        //TODO: create listener and populate with data for ListView
+        mAdapter = new WorkoutListAdapter(this, user.getCurrentWorkout().getExercises());
+        list.setAdapter(mAdapter);
     }
 
     @Override
