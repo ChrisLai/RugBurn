@@ -3,8 +3,12 @@ package cs3714.rugburn;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.Calendar;
 
 import cs3714.rugburn.CustomObjects.User;
 
@@ -12,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     User user;
     Button start, past, wod;
+    TextView burn;
     Intent i;
 
     @Override
@@ -34,6 +39,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         past.setOnClickListener(this);
         wod = (Button) findViewById(R.id.wodButton);
         wod.setOnClickListener(this);
+
+        burn = (TextView)findViewById(R.id.feelBurn);
+
+        Calendar c = Calendar.getInstance();
+        int seconds = c.get(Calendar.SECOND);
+        burn.postDelayed(new Runnable() {
+                                public void run() {
+                                    String first = "We Feel the ";
+                                    String next = "<font color='#EE0000'>red</font>";
+                                    burn.setText(Html.fromHtml(first + next));
+                                }
+                            },2*1000 );
 
         if (user.getCurrentWorkout() != null &&
                 user.getCurrentWorkout().getExercises().size() > 0 &&
