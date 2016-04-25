@@ -1,9 +1,11 @@
 package cs3714.rugburn.CustomObjects;
 
+import java.io.Serializable;
+
 /**
  * Created by Jared on 4/22/2016.
  */
-public class Exercise {
+public class Exercise implements Serializable {
 
     String name;
     int sets, reps, weight, picture;
@@ -11,6 +13,8 @@ public class Exercise {
     public Exercise(String n) {
         name = n;
     }
+
+    public String getName() { return name; };
 
     public int getSets() {
         return sets;

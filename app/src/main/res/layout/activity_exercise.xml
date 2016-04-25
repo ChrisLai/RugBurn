@@ -43,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="7dp"
+                android:inputType="number"
                 android:hint="i.e 3"
                 android:textSize="30dp"
                 android:layout_gravity="left"/>
@@ -64,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="7dp"
+                android:inputType="number"
                 android:hint="i.e 10"
                 android:textSize="30dp"
                 android:layout_gravity="left"/>
@@ -85,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="7dp"
+                android:inputType="number"
                 android:hint="i.e 135"
                 android:textSize="30dp"
                 android:layout_gravity="left"/>
