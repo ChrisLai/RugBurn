@@ -25,7 +25,7 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
     WorkoutListAdapter mAdapter;
 
     Button finish;
-    TextView quote, date_text;
+    TextView quote, date_text,motivational;
     ListView list;
     Intent i;
 
@@ -40,7 +40,7 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
         if (bundle != null) {
             user = bundle.getParcelable("USER");
         }
-
+        motivational = (TextView)findViewById(R.id.motivational);
         workout = user.getCurrentWorkout();
         if (workout != null) {
             if (!workout.getFinished()) {
@@ -60,6 +60,7 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void DisplayPast() {
+        motivational.setVisibility(View.VISIBLE);
         date_text = (TextView) findViewById(R.id.date);
         date_text.setText(workout.getDate().toString().substring(0, 10));
 
@@ -74,6 +75,7 @@ public class PastWorkoutActivity extends AppCompatActivity implements View.OnCli
     public void NoWorkouts() {
         date_text = (TextView) findViewById(R.id.date);
         date_text.setText("No past workouts");
+        motivational.setVisibility(View.INVISIBLE);
     }
 
     @Override

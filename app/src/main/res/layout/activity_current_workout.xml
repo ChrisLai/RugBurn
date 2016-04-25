@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFF0"
     tools:context="cs3714.rugburn.CurrentWorkoutActivity">
 
     <LinearLayout
@@ -34,7 +35,8 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:text="Start Workout"
-            android:background="#308A24"
+            android:background="#E64A19"
+            android:textColor="#FFF"
             android:textSize="25dp"
             android:padding="12dp"
             android:layout_gravity="center"/>
@@ -43,7 +45,7 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:text="Finish Workout"
-            android:background="#2D9DC8"
+            android:background="#4CAF50"
             android:layout_marginTop="17dp"
             android:padding="7dp"
             android:textSize="25dp"
