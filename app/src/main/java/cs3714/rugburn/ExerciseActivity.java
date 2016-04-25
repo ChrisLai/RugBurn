@@ -44,9 +44,19 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
             user = bundle.getParcelable("USER");
         }
         workout = user.getCurrentWorkout();
+        picture = (ImageView)findViewById(R.id.exercisePic);
 
         //TODO: need to get name of exercise from qr scanner or user manual entry
-        exercise = new Exercise("Squats");
+        if (false) {
+            exercise = new Exercise("Squats");
+            picture.setImageResource(R.drawable.squat);
+        } else  if (false) {
+            exercise = new Exercise("Bench Press");
+            picture.setImageResource(R.drawable.bench);
+        } else {
+            exercise = new Exercise("Bicep Curls");
+            picture.setImageResource(R.drawable.bicep);
+        }
 
         submit = (Button) findViewById(R.id.submit);
         submit.setOnClickListener(this);
@@ -54,11 +64,13 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         cancel.setOnClickListener(this);
 
         exerciseName = (TextView)findViewById(R.id.name);
+        exerciseName.setText(exercise.getName());
+
         sets = (EditText)findViewById(R.id.setSets);
         reps = (EditText)findViewById(R.id.setReps);
         weight = (EditText)findViewById(R.id.setWeight);
 
-        picture = (ImageView)findViewById(R.id.exercisePic);
+
     }
 
     @Override
