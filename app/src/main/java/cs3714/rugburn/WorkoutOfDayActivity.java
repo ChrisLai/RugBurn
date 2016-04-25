@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import cs3714.rugburn.CustomObjects.Exercise;
 import cs3714.rugburn.CustomObjects.User;
@@ -25,6 +27,8 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
     Button start;
     TextView exercise,sets,reps,weight,quote;
     ImageView picture;
+
+    ArrayList<String> motivationalQuotes;
 
     Intent i;
 
@@ -45,12 +49,22 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
         start.setOnClickListener(this);
 
         //TODO: make workout of the day and set these TextViews and the ImageView
-        //TODO: also need motivational quotes
+
         exercise = (TextView)findViewById(R.id.wod);
         sets = (TextView)findViewById(R.id.setNum);
         reps = (TextView)findViewById(R.id.repNum);
         weight = (TextView)findViewById(R.id.weightNum);
         quote = (TextView)findViewById(R.id.motivate);
+
+        motivationalQuotes = new ArrayList<String>(){{
+            add("You Can Do It!");
+            add("Never Give up!");
+            add("Get Big!");
+            add("No Pain, No Gain!");
+            add("Push Yourself!");
+
+        }};
+        quote.setText(getRandomQuote());
 
         picture = (ImageView)findViewById(R.id.wodPic);
     }
@@ -72,6 +86,10 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
+    public String getRandomQuote() {
+        Random r = new Random();
+        return motivationalQuotes.get(r.nextInt(5));
+    }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button

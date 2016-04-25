@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import cs3714.rugburn.CustomObjects.User;
 import cs3714.rugburn.CustomObjects.Workout;
@@ -23,6 +26,7 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
     User user;
     Workout workout;
     WorkoutListAdapter mAdapter;
+    ArrayList<String> motivationalQuotes;
 
     Button finish,add;
     ListView list;
@@ -66,7 +70,16 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
             System.out.println("WORKOUT IS: " + workout.getExercises().get(0).getName());
         }
 
+        motivationalQuotes = new ArrayList<String>(){{
+            add("You Can Do It!");
+            add("Never Give up!");
+            add("Get Big!");
+            add("No Pain, No Gain!");
+            add("Push Yourself!");
 
+        }};
+        Toast.makeText(this, getRandomQuote(),
+                Toast.LENGTH_SHORT).show();
 
         list = (ListView) findViewById(R.id.list);
         mAdapter = new WorkoutListAdapter(this, user.getCurrentWorkout().getExercises());
@@ -77,6 +90,8 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         if (v.getId() == finish.getId()) {
             workout.setFinished(true);
+            Toast.makeText(this, "Nice Workout!",
+                    Toast.LENGTH_SHORT).show();
             i = new Intent(this, MainActivity.class);
             Bundle b = new Bundle();
             b.putParcelable("USER", user);
@@ -92,6 +107,10 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
             i.putExtras(b);
             startActivity(i);
         }
+    }
+    public String getRandomQuote() {
+        Random r = new Random();
+        return motivationalQuotes.get(r.nextInt(5));
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

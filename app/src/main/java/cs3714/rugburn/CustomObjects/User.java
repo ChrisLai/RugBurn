@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Jared on 4/22/2016.
@@ -11,9 +12,12 @@ import java.util.ArrayList;
 public class User implements Parcelable{
 
     ArrayList<Workout> workouts;
+    ArrayList<String> motivationalQuotes;
 
     public User() {
+
         workouts = new ArrayList<Workout>();
+
     }
 
     public void addWorkout(Workout w) {

@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         burn.postDelayed(new Runnable() {
                                 public void run() {
                                     String first = "We Feel the ";
-                                    String next = "<font color='#EE0000'>red</font>";
+                                    String next = "<font color='#EE0000'>BURN</font>";
                                     burn.setText(Html.fromHtml(first + next));
                                 }
-                            },2*1000 );
+                            },1000 );
 
         if (user.getCurrentWorkout() != null &&
                 user.getCurrentWorkout().getExercises().size() > 0 &&
