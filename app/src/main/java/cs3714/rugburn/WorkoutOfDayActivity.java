@@ -48,7 +48,7 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
         start = (Button) findViewById(R.id.start);
         start.setOnClickListener(this);
 
-        //TODO: make workout of the day and set these TextViews and the ImageView
+
 
         exercise = (TextView)findViewById(R.id.wod);
         sets = (TextView)findViewById(R.id.setNum);
