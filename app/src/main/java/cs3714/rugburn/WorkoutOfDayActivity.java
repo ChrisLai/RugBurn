@@ -33,7 +33,8 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wod);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
@@ -57,7 +58,7 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if (v.getId() == start.getId()) {
-            i = new Intent(this, Exercise.class);
+            i = new Intent(this, ExerciseActivity.class);
             if (user.getCurrentWorkout() != null) {
                 user.getCurrentWorkout().setFinished(true);
             }
