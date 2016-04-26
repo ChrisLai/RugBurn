@@ -1,6 +1,7 @@
 package cs3714.rugburn;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -100,14 +101,54 @@ public class CurrentWorkoutActivity extends AppCompatActivity implements View.On
         } else if (v.getId() == add.getId()) {
 
             //TODO won't go straight to exercise activity -- needs pop up dialog w/ qr option
+            try {
+                //QR intent
+                Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                intent.putExtra("SCAN_MODE", "QR_CODE_MODE"); // "PRODUCT_MODE for bar codes
+                startActivityForResult(intent, 0);
 
-            i = new Intent(this, ExerciseActivity.class);
-            Bundle b = new Bundle();
-            b.putParcelable("USER", user);
-            i.putExtras(b);
-            startActivity(i);
+            } catch (Exception e) {
+                //This will send user to android market (to download QR app)
+                Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
+                Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
+                startActivity(marketIntent);
+            }
+
+
+
+//            i = new Intent(this, ExerciseActivity.class);
+//            Bundle b = new Bundle();
+//            b.putParcelable("USER", user);
+//            i.putExtras(b);
+//            startActivity(i);
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+
+            if (resultCode == RESULT_OK) {
+                //RESULT from QR code is a string
+                String contents = data.getStringExtra("SCAN_RESULT");
+                Toast.makeText(this.getBaseContext(),contents,
+                        Toast.LENGTH_SHORT).show();
+                i = new Intent(this, ExerciseActivity.class);
+                Bundle b = new Bundle();
+                b.putParcelable("USER", user);
+                i.putExtra("WORKOUT",contents);
+                i.putExtras(b);
+                startActivity(i);
+
+            }
+            if(resultCode == RESULT_CANCELED){
+                //handle cancel
+            }
+        }
+    }
+
+
     public String getRandomQuote() {
         Random r = new Random();
         return motivationalQuotes.get(r.nextInt(5));

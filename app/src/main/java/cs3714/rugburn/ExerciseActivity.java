@@ -28,6 +28,7 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
 
     Button submit, cancel;
     TextView exerciseName;
+    String name;
     EditText sets,reps,weight;
     ImageView picture;
     Intent i;
@@ -42,18 +43,19 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
             user = bundle.getParcelable("USER");
+            name = bundle.getString("WORKOUT");
         }
         workout = user.getCurrentWorkout();
         picture = (ImageView)findViewById(R.id.exercisePic);
 
         //TODO: need to get name of exercise from qr scanner or user manual entry
-        if (false) {
+        if (name.equals("Squats")) {
             exercise = new Exercise("Squats");
             picture.setImageResource(R.drawable.squat);
-        } else  if (false) {
+        } else  if (name.equals("Bench Press")) {
             exercise = new Exercise("Bench Press");
             picture.setImageResource(R.drawable.bench);
-        } else {
+        } else if (name.equals("Bicep Curls")) {
             exercise = new Exercise("Bicep Curls");
             picture.setImageResource(R.drawable.bicep);
         }
