@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFF0"
     tools:context="cs3714.rugburn.MainActivity">
 
     <LinearLayout
@@ -26,6 +27,7 @@
             android:id="@+id/wodPic"
             android:layout_width="350dp"
             android:layout_height="165dp"
+            android:src="@drawable/squat"
             android:layout_gravity="center"/>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -92,7 +94,7 @@
                 android:id="@+id/weightNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="155"
+                android:text="175"
                 android:textSize="30dp"
                 android:textColor="#000000"
                 android:padding="7dp"
@@ -114,7 +116,8 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:text="Start Exercise"
-            android:background="#308A24"
+            android:background="#E64A19"
+            android:textColor="#FFF"
             android:textSize="25dp"
             android:layout_gravity="center"/>
 

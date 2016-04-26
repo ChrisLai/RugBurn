@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFF0"
     tools:context="cs3714.rugburn.MainActivity">
 
     <LinearLayout
@@ -36,25 +37,29 @@
             android:layout_height="wrap_content"
             android:text="Start New Workout"
             android:textSize="25dp"
-            android:background="#308A24"
+            android:background="#FF5722"
+            android:textColor="#FFF"
             android:padding="5dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="center"/>
         <Button
             android:id="@+id/previous"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:text="View Previous Workout"
-            android:background="#A1A1A1"
+            android:background="#F4511E"
+            android:textColor="#FFF"
             android:textSize="25dp"
             android:padding="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="center"/>
         <Button
             android:id="@+id/wodButton"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:text="Workout of the Day"
-            android:background="#2D9DC8"
+            android:background="#E64A19"
+            android:textColor="#FFF"
             android:textSize="25dp"
             android:padding="5dp"
             android:layout_gravity="center"

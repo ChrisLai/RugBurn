@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFF0"
     tools:context="cs3714.rugburn.MainActivity">
 
     <LinearLayout
@@ -105,7 +106,7 @@
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#EE0000"
+            android:background="#BDBDBD"
             android:text="Cancel"
             android:textSize="30dp"
             android:paddingTop="12dp"
@@ -116,7 +117,8 @@
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#308A24"
+            android:background="#E64A19"
+            android:textColor="#FFF"
             android:paddingLeft="12dp"
             android:text="Submit"
             android:textSize="30dp"
