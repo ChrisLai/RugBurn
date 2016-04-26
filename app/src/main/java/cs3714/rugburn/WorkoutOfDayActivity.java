@@ -82,6 +82,7 @@ public class WorkoutOfDayActivity extends AppCompatActivity implements View.OnCl
             Bundle b = new Bundle();
             b.putParcelable("USER", user);
             i.putExtras(b);
+            i.putExtra("WORKOUT","Squats");
             startActivity(i);
         }
     }

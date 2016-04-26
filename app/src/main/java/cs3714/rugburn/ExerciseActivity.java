@@ -39,7 +39,7 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_exercise);
 
         //getActionBar().setDisplayHomeAsUpEnabled(true);
-
+        name = "";
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
             user = bundle.getParcelable("USER");
@@ -111,6 +111,7 @@ public class ExerciseActivity extends AppCompatActivity implements View.OnClickL
             b.putParcelable("USER", user);
             i.putExtras(b);
             startActivity(i);
+            this.finish();
         }
     }
 
