@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button start, past, wod;
     TextView burn;
     Intent i;
+    CommHandler commHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {
             System.out.println("BUNDLE BACK");
-            user = bundle.getParcelable("USER");
+            //user = bundle.getParcelable("USER");
+            user = new User();
         } else {
             System.out.println("NO BUNDLE");
             user = new User();
@@ -61,8 +63,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             System.out.println(user.getCurrentWorkout());
         }
 
+        commHandler = new CommHandler(this);
     }
 
+    public void onWatchClick(){
+        i = new Intent(this, CurrentWorkoutActivity.class);
+        Bundle b = new Bundle();
+        b.putParcelable("USER", user);
+        i.putExtras(b);
+        startActivity(i);
+    }
 
     @Override
     public void onClick(View v) {
