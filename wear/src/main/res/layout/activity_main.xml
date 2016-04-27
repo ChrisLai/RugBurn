@@ -4,13 +4,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context="cs3714.rugburnwear.MainActivity" tools:deviceIds="wear">
+    tools:context="cs3714.rugburn.MainActivity" tools:deviceIds="wear">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:text="Workout\n of the Day"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="18sp"
+            android:text="Sets: 3\nReps: 10\nWeight: 175"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Workout"
+            android:layout_weight="3"
+            android:id="@+id/button"/>
+    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to \nWorkout \nof the Day"
-        android:id="@+id/button"/>
 
 
 </android.support.wearable.view.BoxInsetLayout>
